@@ -1,0 +1,12 @@
+# User specified ignores
+anim/
+media/
+venv/
+scripts/
+demo.html
+post
+__pycache__/
+
+# System / OS files
+.DS_Store
+*.py[cod]
