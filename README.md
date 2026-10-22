@@ -10,8 +10,8 @@ Each part serves as a dedicated lecture session featuring interactive visual arc
 
 | Part / Session | Topic | Lecture Board | Actual Code | Learning Outcomes |
 | :--- | :--- | :--- | :--- | :--- |
-| **Part 1** | **API Architecture & HTTP Fundamentals** | [1.excalidraw](parts/part-1/lecture_boards/1.excalidraw) | [main.py](parts/part-1/src/main.py) | • **Client-Server Architecture**: Multi-tier flow (Client ➔ API Gateway / Reverse Proxy ➔ Application Server ➔ Database / Cache).<br>• **URL Anatomy**: Base URL, Route, Path Parameters (`/users/42` for identity), Query Parameters (`?limit=5` for filtering/pagination), and Anchors.<br>• **HTTP Protocol Deep Dive**: Request/Response lines, Header metadata (Auth, Content-Type, Caching), and JSON Payloads.<br>• **Data Formats & Validation**: Comparing JSON, XML, YAML, and understanding data contracts & schema validation.<br>• **HTTP Methods & Semantics**: GET, POST, PUT, DELETE, PATCH; Safe vs. Idempotent operations.<br>• **Status Code Taxonomy**: 1xx (Informational), 2xx (Success), 3xx (Redirection), 4xx (Client Errors), 5xx (Server Errors).<br>• **Architectural Paradigms**: REST, GraphQL, gRPC, WebSockets, and the 6 REST constraints (Statelessness, Uniform Interface, Layered System, etc.). |
-| **Part 2** | **REST API Design & Implementation (To-Do App)** | [todo-api-lecture.excalidraw](parts/part-2/lecture-boards/todo-api-lecture.excalidraw) | [main.py](parts/part-2/src/main.py) | • **API Mental Model**: Real-world Restaurant Analogy (Client = Customer, API Server = Waiter, Storage = Kitchen).<br>• **Resource Modeling**: Designing a `Task` entity with `id`, `name`, `description`, and `done` state.<br>• **Sequence Diagrams**: Visualized request-response lifecycle for all 5 CRUD operations (POST, GET list, GET single, PUT, DELETE).<br>• **FastAPI Endpoint Construction**: Writing `POST /todos` (201 Created), `GET /todos` (200 OK), and `GET /todos/{id}` with Path Parameters.<br>• **Error Handling & Status Codes**: Using `HTTPException` and `JSONResponse` to return appropriate client responses (e.g., 400 Bad Request, 404 Not Found).<br>• **Interactive Documentation**: Verifying and testing endpoints using automated Swagger UI (`/docs`) and ReDoc (`/redoc`). |
+| **Part 1** | **API Architecture & HTTP Fundamentals** | [1.excalidraw](parts/part-1/lecture_boards/1.excalidraw) | [main.py](parts/part-1/src/main.py) | • Client-Server Architecture<br>• URL Anatomy (Path vs Query Params)<br>• HTTP Protocol & Headers<br>• Data Formats (JSON, YAML, XML)<br>• Data Contracts & Validation<br>• HTTP Methods & Idempotency<br>• HTTP Status Codes (1xx–5xx)<br>• REST Architectural Constraints |
+| **Part 2** | **REST API Design & Implementation (To-Do App)** | [todo-api-lecture.excalidraw](parts/part-2/lecture-boards/todo-api-lecture.excalidraw) | [main.py](parts/part-2/src/main.py) | • Request-Response Mental Model<br>• Task Resource Modeling<br>• CRUD Sequence Diagrams<br>• FastAPI Routing (`POST`, `GET`, `GET /{id}`)<br>• Status Codes & `HTTPException`<br>• Interactive Swagger UI Docs (`/docs`) |
 
 ---
 
@@ -20,30 +20,27 @@ Each part serves as a dedicated lecture session featuring interactive visual arc
 ### 🔹 Part 1: API Development Architecture & Core Concepts
 - **Lecture Board**: [`parts/part-1/lecture_boards/1.excalidraw`](parts/part-1/lecture_boards/1.excalidraw)
 - **Source Code**: [`parts/part-1/src/main.py`](parts/part-1/src/main.py)
-- **Focus**: Establishing a solid mental model of web protocols and architectural design before writing server code.
-- **Key Concepts Covered**:
-  - The multi-tier client-server lifecycle and separation of concerns.
-  - Deconstructing URLs: Host, port, path parameters vs. query parameters.
-  - Anatomy of HTTP/1.1 and HTTP/2 requests and responses.
-  - Serialization standards: JSON vs. XML vs. YAML.
-  - Data contracts, payload validation, and defensive programming.
-  - HTTP method safety and idempotency rules (GET/PUT vs. POST).
-  - Categorizing HTTP status codes (200, 201, 204, 400, 401, 403, 404, 500, 502, 503).
-  - Comparing API paradigms: REST, GraphQL, gRPC, WebSockets, and Webhooks.
+- **Learning Outcomes**:
+  - Client-Server Architecture & Multi-tier Flow
+  - URL Anatomy (Host, Route, Path & Query Parameters)
+  - HTTP Protocol, Headers & Payloads
+  - Serialization Formats (JSON, XML, YAML)
+  - Data Contracts & Schema Validation
+  - HTTP Method Semantics & Idempotency
+  - Status Code Classifications (1xx–5xx)
+  - REST Constraints vs GraphQL / gRPC / WebSockets
 
 ### 🔹 Part 2: RESTful To-Do API Design & Implementation
 - **Lecture Board**: [`parts/part-2/lecture-boards/todo-api-lecture.excalidraw`](parts/part-2/lecture-boards/todo-api-lecture.excalidraw)
 - **Source Code**: [`parts/part-2/src/main.py`](parts/part-2/src/main.py) (also mirrored at [`main.py`](main.py))
-- **Focus**: Translating architectural concepts and sequence diagrams into a working FastAPI application.
-- **Key Concepts Covered**:
-  - Designing clean RESTful URL paths using nouns (`/todos`, `/todos/{id}`).
-  - Implementing CRUD endpoints:
-    - `POST /todos`: Parse request body, auto-generate sequential IDs, default task state, return `201 Created`.
-    - `GET /todos`: Return array of existing tasks with `200 OK`.
-    - `GET /todos/{id}`: Parse URL path parameter, search tasks, return `200 OK` or raise `404 Not Found`.
-    - `PUT /todos/{id}` & `DELETE /todos/{id}`: Updating and removing resource state.
-  - Utilizing FastAPI's `Request`, `HTTPException`, `status`, and `JSONResponse`.
-  - Testing APIs interactively with Swagger UI.
+- **Learning Outcomes**:
+  - Request-Response Mental Model (Restaurant Analogy)
+  - Task Resource Modeling (`id`, `name`, `description`, `done`)
+  - CRUD Sequence Diagrams (POST, GET, PUT, DELETE)
+  - FastAPI Route Handlers & URL Nouns
+  - Status Codes (`200 OK`, `201 Created`, `400 Bad Request`, `404 Not Found`)
+  - Error Handling with `HTTPException` & `JSONResponse`
+  - Interactive API Testing (Swagger UI & ReDoc)
 
 ---
 
